@@ -2,41 +2,36 @@
 {
     sealed class Constants
     {
+        /// <summary>
+        /// Default sender port of UDP Comms estabished by M-Box
+        /// </summary>
         public static int HOST_PORT = 8410;
+        /// <summary>
+        /// Default receiver (M-Box) port for UDP Comms
+        /// </summary>
         public static int MBOX_PORT = 7408;
-        public static string[] GOTO_MAX =
-        {
-            "\x55\xaa\x00\x00\x13\x01" ,
-            "\x00\x01\xff\xff\xff\xff\x00\x00\x00\x01\x00\x00\x00\x00\x00\x01" ,
-            "\x86\xa0\x00\x01\x86\xa0\x00\x01\x86\xa0\x00\x01\x86\xa0\x00\x01" ,
-            "\x86\xa0\x00\x01\x86\xa0\x00\x00\x00\x00\x00\x00"
 
+        /// <summary>
+        /// Command taken from Wireshark dumps to tell the M-Box to go to max position.
+        /// </summary>
+        public static byte[] GOTO_MAX =
+        {
+             0x55, 0xaa, 0x00, 0x00, 0x13, 0x01
+            , 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
+            , 0x86, 0xa0, 0x00, 0x01, 0x86, 0xa0, 0x00, 0x01, 0x86, 0xa0, 0x00, 0x01, 0x86, 0xa0, 0x00, 0x01
+            , 0x86, 0xa0, 0x00, 0x01, 0x86, 0xa0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
 
-        public static string[] GOTO_MAX_10AXIS =
+        /// <summary>
+        /// Command taken from Wireshark dumps to tell the M-Box to go to 0 position.
+        /// </summary>
+        public static byte[] GOTO_ZERO =
         {
-            "\x55\xaa\x00\x00\x13\x01" ,
-            "\x00\x02\xff\xff\xff\xff\x00\x00\x00\x01\x00\x00\x00\x00\x00\x01" ,
-            "\x86\xa0\x00\x01\x86\xa0\x00\x01\x86\xa0\x00\x01\x86\xa0\x00\x01" ,
-            "\x86\xa0\x00\x01\x86\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" ,
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+            0x55, 0xaa, 0x00, 0x00, 0x13, 0x01
+            , 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
 
-        public static string[] GOTO_ZERO =
-        {
-            "\x55\xaa\x00\x00\x13\x01" ,
-            "\x00\x01\xff\xff\xff\xff\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00" ,
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" ,
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-        };
-
-        public static string[] GO_TO_ZERO_10AXIS =
-        {
-            "\x55\xaa\x00\x00\x13\x01",
-            "\x00\x02\xff\xff\xff\xff\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00",
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00",
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00",
-            "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-        };
     }
 }
