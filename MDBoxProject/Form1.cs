@@ -89,7 +89,7 @@ namespace MDBoxProject
                 }
 
 
-                btnMaxPos.Enabled = btnZero.Enabled = true;
+                btnMaxPos.Enabled = btnZero.Enabled = btnSend.Enabled = btnReset.Enabled = true;
                 btnConnect.Enabled = false;
             }
             catch (Exception ex)
