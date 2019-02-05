@@ -69,6 +69,7 @@
             this.numericWAxis = new System.Windows.Forms.NumericUpDown();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
+            this.checkUserCmmands = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -134,7 +135,7 @@
             this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 85);
+            this.groupBox1.Size = new System.Drawing.Size(265, 85);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connection Parameters";
@@ -150,7 +151,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 66);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(259, 66);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -581,11 +582,22 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.SendAxisDataClick);
             // 
+            // checkUserCmmands
+            // 
+            this.checkUserCmmands.AutoSize = true;
+            this.checkUserCmmands.Location = new System.Drawing.Point(299, 36);
+            this.checkUserCmmands.Name = "checkUserCmmands";
+            this.checkUserCmmands.Size = new System.Drawing.Size(122, 30);
+            this.checkUserCmmands.TabIndex = 29;
+            this.checkUserCmmands.Text = "Use User command \r\nmodifications";
+            this.checkUserCmmands.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 388);
+            this.Controls.Add(this.checkUserCmmands);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.groupBox2);
@@ -633,6 +645,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackWAxis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWAxis)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -678,6 +691,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TrackBar trackWAxis;
         private System.Windows.Forms.NumericUpDown numericWAxis;
+        private System.Windows.Forms.CheckBox checkUserCmmands;
     }
 }
 

@@ -62,7 +62,7 @@ namespace MDBoxProject
 
         private void GoToMaxClick(object sender, EventArgs e)
         {
-            controller.GoToMaxPosition();
+            controller.GoToMaxPosition(!checkUserCmmands.Checked);
         }
 
         private void GoToZeroClick(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace MDBoxProject
         private void SendAxisDataClick(object sender, EventArgs e)
         {
             var data = new AxisData(trackXAxis.Value, trackYAxis.Value, trackZAxis.Value,
-                trackUAxis.Value, trackVAxis.Value, trackWAxis.Value);
+                trackUAxis.Value, trackVAxis.Value, trackWAxis.Value, !checkUserCmmands.Checked);
             controller.SendAxisData(data);
         }
 
