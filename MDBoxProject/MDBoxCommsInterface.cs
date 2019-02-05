@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using static MDBoxProject.Constants;
 
 namespace MDBoxProject
 {
@@ -63,6 +65,22 @@ namespace MDBoxProject
         public void GoToZero()
         {
             Send(Constants.GOTO_ZERO);
+        }
+
+        /// <summary>
+        /// Creates and sends a packet containing the axis data specified in the Axis Data object.
+        /// </summary>
+        /// <param name="data">Object containing the positions of each one of the 6 axis.</param>
+        public void SendAxisData(AxisData data)
+        {
+            var header = CONFIRM_CODE.Concat(PASSS_CODE).Concat(FUNCTION_CODE).Concat(OBJECT_CHANNEL).Concat(WHO_ACCEPT).Concat(
+                WHO_REPLY).Concat(LINE).Concat(DELTA_TIME);
+            var axisData = data.X.ToByteArray().Concat(data.Y.ToByteArray()).Concat(data.Z.ToByteArray()).Concat(data.U.ToByteArray()).Concat(
+                data.V.ToByteArray()).Concat(data.W.ToByteArray());
+            var footer = BASE_DOUT.Concat(DAC);
+
+            var message = header.Concat(axisData).Concat(footer);
+            Send(message.ToArray());
         }
 
         #endregion Commands

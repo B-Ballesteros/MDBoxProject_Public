@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -16,6 +18,24 @@ namespace MDBoxProject
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
                 return null;
+            }
+        }
+
+        public static byte[] ToByteArray(this int input)
+        {
+            try
+            {
+                if (input == 0)
+                {
+                    return new byte[] { 0x00, 0x00, 0x00, 0x00 };
+                }
+                var array = BitConverter.GetBytes(input);
+                return BitConverter.IsLittleEndian ? array.Reverse().ToArray() : array;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return new byte[0];
             }
         }
     }
