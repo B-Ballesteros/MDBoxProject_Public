@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace MDBoxProject
 {
@@ -36,6 +36,56 @@ namespace MDBoxProject
             {
                 Debug.WriteLine(ex.Message);
                 return new byte[0];
+            }
+        }
+
+        public static void SetNumericUpDown(this Control.ControlCollection controls, string tag, int value, out bool found)
+        {
+            found = false;
+            foreach (Control ctrl in controls)
+            {
+                if (ctrl is NumericUpDown && Equals(ctrl.Tag, tag))
+                {
+                    ((NumericUpDown)ctrl).Value = value;
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    if (ctrl.Controls?.Count > 0)
+                    {
+                        SetNumericUpDown(ctrl.Controls, tag, value, out found);
+                        if (found)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void SetTrackBar(this Control.ControlCollection controls, string tag, int value, out bool found)
+        {
+            found = false;
+            foreach (Control ctrl in controls)
+            {
+                if (ctrl is TrackBar && Equals(ctrl.Tag, tag))
+                {
+                    ((TrackBar)ctrl).Value = value;
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    if (ctrl.Controls?.Count > 0)
+                    {
+                        SetTrackBar(ctrl.Controls, tag, value, out found);
+                        if (found)
+                        {
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

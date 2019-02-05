@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 namespace MDBoxProject
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
 
         MDBoxCommsInterface controller;
 
 
-        public mainForm()
+        public MainForm()
         {
             InitializeComponent();
             
@@ -52,7 +52,7 @@ namespace MDBoxProject
         {
             txtIPAddress.SelectionStart = 0;
         }
-        #endregion
+        #endregion TextBox Events
 
         #region Button Events
         private void TestButtonClick(object sender, EventArgs e)
@@ -107,6 +107,45 @@ namespace MDBoxProject
             txtIPAddress.Enabled = !check.Checked;
         }
 
+        #region Axis Position
+        private void NumericUpDownValueChanged(object sender, EventArgs e)
+        {
+            var upDown = sender as NumericUpDown;
+            Controls.SetTrackBar(upDown.Tag.ToString(), Convert.ToInt32(upDown.Value), out bool found);
+        }
+
+        private void TrackBarValueChanged(object sender, EventArgs e)
+        {
+            var trackBar = sender as TrackBar;
+            Controls.SetNumericUpDown(trackBar.Tag.ToString(), trackBar.Value, out bool found);
+        }
+        #endregion Axis Position
+
         #endregion Events
+
+        private void trackXAxis_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackYAxis_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackZAxis_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackUAxis_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackVAxis_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }

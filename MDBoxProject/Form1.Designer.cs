@@ -1,6 +1,6 @@
 ﻿namespace MDBoxProject
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -292,6 +292,8 @@
             this.trackXAxis.Tag = "0";
             this.trackXAxis.TickFrequency = 10;
             this.trackXAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackXAxis.Scroll += new System.EventHandler(this.trackXAxis_Scroll);
+            this.trackXAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericXAxis
             // 
@@ -303,6 +305,7 @@
             this.numericXAxis.TabIndex = 11;
             this.numericXAxis.Tag = "0";
             this.numericXAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericXAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // flowLayoutPanel4
             // 
@@ -341,6 +344,8 @@
             this.trackYAxis.Tag = "1";
             this.trackYAxis.TickFrequency = 10;
             this.trackYAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackYAxis.Scroll += new System.EventHandler(this.trackYAxis_Scroll);
+            this.trackYAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericYAxis
             // 
@@ -352,6 +357,7 @@
             this.numericYAxis.TabIndex = 13;
             this.numericYAxis.Tag = "1";
             this.numericYAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericYAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // flowLayoutPanel5
             // 
@@ -390,6 +396,8 @@
             this.trackZAxis.Tag = "2";
             this.trackZAxis.TickFrequency = 10;
             this.trackZAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackZAxis.Scroll += new System.EventHandler(this.trackZAxis_Scroll);
+            this.trackZAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericZAxis
             // 
@@ -401,6 +409,7 @@
             this.numericZAxis.TabIndex = 15;
             this.numericZAxis.Tag = "2";
             this.numericZAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericZAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // flowLayoutPanel6
             // 
@@ -439,6 +448,8 @@
             this.trackUAxis.Tag = "3";
             this.trackUAxis.TickFrequency = 10;
             this.trackUAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackUAxis.Scroll += new System.EventHandler(this.trackUAxis_Scroll);
+            this.trackUAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericUAxis
             // 
@@ -450,6 +461,7 @@
             this.numericUAxis.TabIndex = 17;
             this.numericUAxis.Tag = "3";
             this.numericUAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // flowLayoutPanel7
             // 
@@ -488,6 +500,8 @@
             this.trackVAxis.Tag = "4";
             this.trackVAxis.TickFrequency = 10;
             this.trackVAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackVAxis.Scroll += new System.EventHandler(this.trackVAxis_Scroll);
+            this.trackVAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericVAxis
             // 
@@ -499,6 +513,7 @@
             this.numericVAxis.TabIndex = 19;
             this.numericVAxis.Tag = "4";
             this.numericVAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericVAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // flowLayoutPanel8
             // 
@@ -537,6 +552,7 @@
             this.trackWAxis.Tag = "5";
             this.trackWAxis.TickFrequency = 10;
             this.trackWAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackWAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericWAxis
             // 
@@ -548,6 +564,7 @@
             this.numericWAxis.TabIndex = 21;
             this.numericWAxis.Tag = "5";
             this.numericWAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericWAxis.ValueChanged += new System.EventHandler(this.NumericUpDownValueChanged);
             // 
             // btnReset
             // 
@@ -567,7 +584,7 @@
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             // 
-            // mainForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -581,7 +598,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "mainForm";
+            this.Name = "MainForm";
             this.Text = "MDBox Controller";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
