@@ -33,5 +33,18 @@
             , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
 
+        #region Messsage Structure
+        public static byte[] CONFIRM_CODE = { 0x55, 0xAA };
+        public static byte[] PASSS_CODE = { 0x00, 0x00 };
+        //UDP absolute playing time data (6 - axis mode)
+        public static byte[] FUNCTION_CODE = { 0x13, 0x01 };
+        public static byte[] OBJECT_CHANNEL = { 0x00, 0x01 };
+        public static byte[] WHO_ACCEPT = { 0xFF, 0xFF };
+        public static byte[] WHO_REPLY = { 0xFF, 0xFF };
+        public static byte[] LINE = { 0x00, 0x00, 0x00, 0x01 };
+        public static byte[] DELTA_TIME = { 0x00, 0x00, 0x00, 0x00 };
+        public static byte[] BASE_DOUT = { 0x00, 0x00 };
+        public static byte[] DAC = { 0x00, 0x00, 0x00, 0x00 };
+        #endregion Message Structure
     }
 }
