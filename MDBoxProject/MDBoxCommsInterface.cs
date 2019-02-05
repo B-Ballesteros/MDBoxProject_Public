@@ -97,6 +97,13 @@ namespace MDBoxProject
             Send(message.ToArray());
         }
 
+        /// <summary>
+        /// Send a packet containing the required commands to tell M-Box to reset.
+        /// </summary>
+        public void Reset()
+        {
+            Send(RESET_PLATFORM);
+        }
         #endregion Commands
 
         #region Helpers
