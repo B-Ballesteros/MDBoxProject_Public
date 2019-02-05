@@ -292,7 +292,6 @@
             this.trackXAxis.Tag = "0";
             this.trackXAxis.TickFrequency = 10;
             this.trackXAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackXAxis.Scroll += new System.EventHandler(this.trackXAxis_Scroll);
             this.trackXAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericXAxis
@@ -344,7 +343,6 @@
             this.trackYAxis.Tag = "1";
             this.trackYAxis.TickFrequency = 10;
             this.trackYAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackYAxis.Scroll += new System.EventHandler(this.trackYAxis_Scroll);
             this.trackYAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericYAxis
@@ -396,7 +394,6 @@
             this.trackZAxis.Tag = "2";
             this.trackZAxis.TickFrequency = 10;
             this.trackZAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackZAxis.Scroll += new System.EventHandler(this.trackZAxis_Scroll);
             this.trackZAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericZAxis
@@ -448,7 +445,6 @@
             this.trackUAxis.Tag = "3";
             this.trackUAxis.TickFrequency = 10;
             this.trackUAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackUAxis.Scroll += new System.EventHandler(this.trackUAxis_Scroll);
             this.trackUAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericUAxis
@@ -500,7 +496,6 @@
             this.trackVAxis.Tag = "4";
             this.trackVAxis.TickFrequency = 10;
             this.trackVAxis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackVAxis.Scroll += new System.EventHandler(this.trackVAxis_Scroll);
             this.trackVAxis.ValueChanged += new System.EventHandler(this.TrackBarValueChanged);
             // 
             // numericVAxis
@@ -574,6 +569,7 @@
             this.btnReset.TabIndex = 28;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.ResetClick);
             // 
             // btnSend
             // 
@@ -583,6 +579,7 @@
             this.btnSend.TabIndex = 27;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.SendAxisDataClick);
             // 
             // MainForm
             // 

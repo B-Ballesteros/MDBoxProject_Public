@@ -99,6 +99,19 @@ namespace MDBoxProject
                 Close();
             }
         }
+
+        private void SendAxisDataClick(object sender, EventArgs e)
+        {
+            var data = new AxisData(trackXAxis.Value, trackYAxis.Value, trackZAxis.Value,
+                trackUAxis.Value, trackVAxis.Value, trackWAxis.Value);
+            controller.SendAxisData(data);
+        }
+
+        private void ResetClick(object sender, EventArgs e)
+        {
+            controller.Reset();
+        }
+
         #endregion Button Events
 
         private void CheckedChanged(object sender, EventArgs e)
@@ -122,30 +135,5 @@ namespace MDBoxProject
         #endregion Axis Position
 
         #endregion Events
-
-        private void trackXAxis_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackYAxis_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackZAxis_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackUAxis_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackVAxis_Scroll(object sender, EventArgs e)
-        {
-
-        }
     }
 }
