@@ -56,7 +56,21 @@ namespace MDBoxProject
         /// </summary>
         public void GoToMaxPosition()
         {
-            Send(Constants.GOTO_MAX);
+            GoToMaxPosition(true);
+        }
+
+        /// <summary>
+        /// Send a packet containing the required commands to tell M-Box to go to max position for 6-Axis mode.
+        /// </summary>
+        /// <param name="useDefault"> Specifies if it should use the command specified by manufacturer or by the findings of the user.</param>
+        public void GoToMaxPosition(bool useDefault)
+        {
+            if(useDefault)
+            {
+                Send(GOTO_MAX);
+            }else {
+                Send(EMPIRIC_GOTO_MAX);
+            }
         }
 
         /// <summary>
@@ -64,7 +78,7 @@ namespace MDBoxProject
         /// </summary>
         public void GoToZero()
         {
-            Send(Constants.GOTO_ZERO);
+            Send(GOTO_ZERO);
         }
 
         /// <summary>
