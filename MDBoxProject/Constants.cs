@@ -1,4 +1,5 @@
-﻿namespace MDBoxProject
+﻿using System.Collections.Generic;
+namespace MDBoxProject
 {
     sealed class Constants
     {

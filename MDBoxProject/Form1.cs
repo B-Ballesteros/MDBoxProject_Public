@@ -124,13 +124,15 @@ namespace MDBoxProject
         private void NumericUpDownValueChanged(object sender, EventArgs e)
         {
             var upDown = sender as NumericUpDown;
-            Controls.SetTrackBar(upDown.Tag.ToString(), Convert.ToInt32(upDown.Value), out bool found);
+            Extensions.SetTrackBar(Controls, upDown.Tag.ToString(), Convert.ToInt32(upDown.Value), out bool found);
+            //Controls.SetTrackBar(upDown.Tag.ToString(), Convert.ToInt32(upDown.Value), out bool found);
         }
 
         private void TrackBarValueChanged(object sender, EventArgs e)
         {
             var trackBar = sender as TrackBar;
-            Controls.SetNumericUpDown(trackBar.Tag.ToString(), trackBar.Value, out bool found);
+            Extensions.SetNumericUpDown(Controls, trackBar.Tag.ToString(), trackBar.Value, out bool found);
+            //Controls.SetNumericUpDown(trackBar.Tag.ToString(), trackBar.Value, out bool found);
         }
         #endregion Axis Position
 

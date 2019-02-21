@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -87,14 +87,39 @@ namespace MDBoxProject
         /// <param name="data">Object containing the positions of each one of the 6 axis.</param>
         public void SendAxisData(AxisData data)
         {
-            var header = CONFIRM_CODE.Concat(PASSS_CODE).Concat(FUNCTION_CODE).Concat(OBJECT_CHANNEL).Concat(WHO_ACCEPT).Concat(
-                WHO_REPLY).Concat(LINE).Concat(DELTA_TIME);
-            var axisData = data.X.ToByteArray().Concat(data.Y.ToByteArray()).Concat(data.Z.ToByteArray()).Concat(data.U.ToByteArray()).Concat(
-                data.V.ToByteArray()).Concat(data.W.ToByteArray());
-            var footer = BASE_DOUT.Concat(DAC);
-
-            var message = header.Concat(axisData).Concat(footer);
-            Send(message.ToArray());
+            var headerlist = new List<byte>();
+            headerlist.AddRange(CONFIRM_CODE);
+            headerlist.AddRange(PASSS_CODE);
+            headerlist.AddRange(FUNCTION_CODE);
+            headerlist.AddRange(OBJECT_CHANNEL);
+            headerlist.AddRange(WHO_ACCEPT);
+            headerlist.AddRange(WHO_REPLY);
+            headerlist.AddRange(LINE);
+            headerlist.AddRange(DELTA_TIME);
+            var header = headerlist.ToArray();
+            //var header = CONFIRM_CODE.Concat(PASSS_CODE).Concat(FUNCTION_CODE).Concat(OBJECT_CHANNEL).Concat(WHO_ACCEPT).Concat(
+            //WHO_REPLY).Concat(LINE).Concat(DELTA_TIME);
+            var axisDataList = new List<byte>();
+            axisDataList.AddRange(Extensions.ToByteArray(data.X));
+            axisDataList.AddRange(Extensions.ToByteArray(data.Y));
+            axisDataList.AddRange(Extensions.ToByteArray(data.Z));
+            axisDataList.AddRange(Extensions.ToByteArray(data.U));
+            axisDataList.AddRange(Extensions.ToByteArray(data.V));
+            axisDataList.AddRange(Extensions.ToByteArray(data.W));
+            var axisData = axisDataList.ToArray();
+            //var axisData = data.X.ToByteArray().Concat(data.Y.ToByteArray()).Concat(data.Z.ToByteArray()).Concat(data.U.ToByteArray()).Concat(
+            //    data.V.ToByteArray()).Concat(data.W.ToByteArray());
+            var footerlist = new List<byte>();
+            footerlist.AddRange(BASE_DOUT);
+            footerlist.AddRange(DAC);
+            var footer = footerlist.ToArray();
+            //var footer = BASE_DOUT.Concat(DAC);
+            var messagelist = new List<byte>();
+            messagelist.AddRange(header);
+            messagelist.AddRange(axisData);
+            messagelist.AddRange(footer);
+            //var message = header.Concat(axisData).Concat(footer);
+            Send(messagelist.ToArray());
         }
 
         /// <summary>

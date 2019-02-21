@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -8,7 +7,7 @@ namespace MDBoxProject
 {
     static class Extensions
     {
-        public static byte[] GetBytesFromEscapedString(this string[] input)
+        public static byte[] GetBytesFromEscapedString(string[] input)
         {
             try
             {
@@ -21,7 +20,7 @@ namespace MDBoxProject
             }
         }
 
-        public static byte[] ToByteArray(this int input)
+        public static byte[] ToByteArray(int input)
         {
             try
             {
@@ -30,7 +29,12 @@ namespace MDBoxProject
                     return new byte[] { 0x00, 0x00, 0x00, 0x00 };
                 }
                 var array = BitConverter.GetBytes(input);
-                return BitConverter.IsLittleEndian ? array.Reverse().ToArray() : array;
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(array);
+                }
+                return array;
+                //return BitConverter.IsLittleEndian ? array.Reverse().ToArray() : array;
             }
             catch (Exception ex)
             {
@@ -39,7 +43,7 @@ namespace MDBoxProject
             }
         }
 
-        public static void SetNumericUpDown(this Control.ControlCollection controls, string tag, int value, out bool found)
+        public static void SetNumericUpDown(Control.ControlCollection controls, string tag, int value, out bool found)
         {
             found = false;
             foreach (Control ctrl in controls)
@@ -64,7 +68,7 @@ namespace MDBoxProject
             }
         }
 
-        public static void SetTrackBar(this Control.ControlCollection controls, string tag, int value, out bool found)
+        public static void SetTrackBar(Control.ControlCollection controls, string tag, int value, out bool found)
         {
             found = false;
             foreach (Control ctrl in controls)
