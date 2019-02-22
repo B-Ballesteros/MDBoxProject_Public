@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using static MDBoxProject.Constants;
+
 
 namespace MDBoxProject
 {
@@ -67,9 +67,9 @@ namespace MDBoxProject
         {
             if(useDefault)
             {
-                Send(GOTO_MAX);
+                Send(Constants.GOTO_MAX);
             }else {
-                Send(EMPIRIC_GOTO_MAX);
+                Send(Constants.EMPIRIC_GOTO_MAX);
             }
         }
 
@@ -78,7 +78,7 @@ namespace MDBoxProject
         /// </summary>
         public void GoToZero()
         {
-            Send(GOTO_ZERO);
+            Send(Constants.GOTO_ZERO);
         }
 
         /// <summary>
@@ -88,14 +88,14 @@ namespace MDBoxProject
         public void SendAxisData(AxisData data)
         {
             var headerlist = new List<byte>();
-            headerlist.AddRange(CONFIRM_CODE);
-            headerlist.AddRange(PASSS_CODE);
-            headerlist.AddRange(FUNCTION_CODE);
-            headerlist.AddRange(OBJECT_CHANNEL);
-            headerlist.AddRange(WHO_ACCEPT);
-            headerlist.AddRange(WHO_REPLY);
-            headerlist.AddRange(LINE);
-            headerlist.AddRange(DELTA_TIME);
+            headerlist.AddRange(Constants.CONFIRM_CODE);
+            headerlist.AddRange(Constants.PASSS_CODE);
+            headerlist.AddRange(Constants.FUNCTION_CODE);
+            headerlist.AddRange(Constants.OBJECT_CHANNEL);
+            headerlist.AddRange(Constants.WHO_ACCEPT);
+            headerlist.AddRange(Constants.WHO_REPLY);
+            headerlist.AddRange(Constants.LINE);
+            headerlist.AddRange(Constants.DELTA_TIME);
             var header = headerlist.ToArray();
             //var header = CONFIRM_CODE.Concat(PASSS_CODE).Concat(FUNCTION_CODE).Concat(OBJECT_CHANNEL).Concat(WHO_ACCEPT).Concat(
             //WHO_REPLY).Concat(LINE).Concat(DELTA_TIME);
@@ -110,8 +110,8 @@ namespace MDBoxProject
             //var axisData = data.X.ToByteArray().Concat(data.Y.ToByteArray()).Concat(data.Z.ToByteArray()).Concat(data.U.ToByteArray()).Concat(
             //    data.V.ToByteArray()).Concat(data.W.ToByteArray());
             var footerlist = new List<byte>();
-            footerlist.AddRange(BASE_DOUT);
-            footerlist.AddRange(DAC);
+            footerlist.AddRange(Constants.BASE_DOUT);
+            footerlist.AddRange(Constants.DAC);
             var footer = footerlist.ToArray();
             //var footer = BASE_DOUT.Concat(DAC);
             var messagelist = new List<byte>();
@@ -127,7 +127,7 @@ namespace MDBoxProject
         /// </summary>
         public void Reset()
         {
-            Send(RESET_PLATFORM);
+            Send(Constants.RESET_PLATFORM);
         }
         #endregion Commands
 
